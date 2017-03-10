@@ -7,6 +7,8 @@ class PagesController < ApplicationController
     @education = Unirest.get("http://localhost:3000/api/education.json").body
 
     @skills = Unirest.get("http://localhost:3000/api/skills.json").body
+    
+    @capstones = Unirest.get("http://localhost:3000/api/capstones.json").body
 
   end 
 
@@ -18,7 +20,8 @@ class PagesController < ApplicationController
     @education = Unirest.get("http://localhost:3000/api/education/#{params[:id]}.json").body
 
     @skills = Unirest.get("http://localhost:3000/api/skills/#{params[:id]}.json").body
-
+    
+    @capstones = Unirest.get("http://localhost:3000/api/capstones/#{params[:id]}.json").body
   end
 
   def new
@@ -33,6 +36,8 @@ class PagesController < ApplicationController
 
     @skills = Unirest.post("http://localhost:3000/api/skills.json", :headers => {"Accept"=> "application/json"}, :parameters => {:skill_name => params[:skill_name]}).body
 
+    @capstones = Unirest.post("http://localhost:3000/api/capstones.json", :headers => {"Accept"=> "application/json"}, :parameters => {:name => params[:name], :description => params[:description], :url => params[:url], :screenshot => params[:screenshot]}).body
+
     redirect_to "/students/#{@student['id']}" 
   end
 
@@ -44,6 +49,8 @@ class PagesController < ApplicationController
     @education = Unirest.post("http://localhost:3000/api/education/#{params[:id]}.json").body 
 
     @skills = Unirest.post("http://localhost:3000/api/skills/#{params[:id]}.json").body 
+
+    @capstones = Unirest.post("http://localhost:3000/api/capstones/#{params[:id]}.json").body 
   end 
 
   def update
@@ -54,6 +61,8 @@ class PagesController < ApplicationController
     @education = Unirest.patch("http://localhost:3000/api/education.json", :headers => {"Accept"=> "application/json"}, :parameters => {:start_date => params[:start_date], :end_date => params[:end_date], :degree=> params[:degree], :university_name => params[:university_name], :details => params[:details]}).body
 
     @skills = Unirest.patch("http://localhost:3000/api/skills.json", :headers => {"Accept"=> "application/json"}, :parameters => {:skill_name => params[:skill_name]}).body
+
+    @capstones = Unirest.patch("http://localhost:3000/api/capstones.json", :headers => {"Accept"=> "application/json"}, :parameters => {:name => params[:name], :description => params[:description], :url => params[:url], :screenshot => params[:screenshot]}).body
 
     redirect_to "/students/#{@student['id']}"
   end
@@ -66,6 +75,8 @@ class PagesController < ApplicationController
     @education = Unirest.delete("http://localhost:3000/api/education/#{params[:id]}.json").body 
     
     @skills = Unirest.delete("http://localhost:3000/api/skills/#{params[:id]}.json").body
+
+    @capstones = Unirest.delete("http://localhost:3000/api/capstones/#{params[:id]}.json").body
     
     redirect_to "/students" 
   end 
