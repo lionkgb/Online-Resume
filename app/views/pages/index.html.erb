@@ -1,0 +1,81 @@
+<h1> Online Students' Resume </h1>
+
+<div ng-app="app">
+  <div ng-controller="pagesCtrl" ng-init="setup()"> 
+    <div>
+      <datalist id="resumes">
+        <option ng-repeat="student in students">{{student.first_name}} - {{student.last_name}} - {{student.email}}</option>
+      </datalist>
+      Search: <input ng-model="filterQuery" list="resumes" >
+
+      <%= button_to 'Add Your Resume', "/students/new", method: :get %>
+
+      
+      </div>
+    </div>
+  </div>
+
+
+
+<div class="row">
+  <% @students.each_slice(4) do |four_students| %>
+  <div class="row">
+    <% four_students.each do |student| %>
+    <div class="col-md-3">
+      <div class="thumbnail">
+
+        <p> <img src ="<%= student.photo if student.photo.any? %> " ></p>   
+        <p> First Name: <%=link_to student.first_name, "/students/#{student.id}" %> </p>  
+        <p> Last Name: <%=link_to student.last_name, "/students/#{student.id}" %> </p>
+        <p> Email: $<%= student.email %></p>
+        <p> Phone: $<%= student.phone_number %> </p>
+        <p> Bio: $<%= student.short_bio %> </p>
+
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <% end %>
+</div>
+
+
+
+
+
+
+<div ng-app="app">
+  <div ng-controller="pagesCtrl" ng-init="setup()"> 
+    <div>
+      <datalist id="ingredients">
+        <option ng-repeat="food in foods">{{food.ingredient}} - {{food.spice}} - {{food.measurement}}</option>
+      </datalist>
+      Filter Foods: <input ng-model="filterQuery" list="ingredients" >
+      <table class="table">
+       <tr >
+         <th ng-click="toggleOrder('ingredient')">Ingredient</th>
+         <th ng-click="toggleOrder('spice')">Spice</th>
+         <th ng-click="toggleOrder('measurement')">Measurement</th>
+         <th>Delete</th>
+         <tr ng-repeat="food in foods | filter: filterQuery | orderBy :attributes:descending">
+          <td>{{food.ingredient}}</td>
+          <td>{{food.spice}}</td>
+          <td>{{food.measurement}}</td>
+          <td><button ng-click="deleteFood(food, $index)"> Delete {{food.ingredient}}</button></td>
+        </tr>
+      </table>
+      <div>
+        Ingredient: <input ng-model="food.ingredient">
+        Spice: <input ng-model="food.spice">
+        Measurement: <input ng-model="food.measurement">
+        <button ng-click="updateFood(foodIngredient, foodSpice, foodMeasurement, food, $index)">Update Food</button>
+      </div>
+    </div>
+    Add food:
+    <div>
+      Ingredient: <input ng-model="foodIngredient">
+      Spice: <input ng-model="foodSpice">
+      Measurement: <input ng-model="foodMeasurement">
+      <button ng-click="addFood(foodIngredient, foodSpice, foodMeasurement)">Add Food</button>
+    </div>
+  </div>
+</div>
