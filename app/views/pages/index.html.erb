@@ -1,0 +1,46 @@
+<h1> Online Students' Resume </h1>
+
+<div ng-app="app">
+  <div ng-controller="pagesCtrl" ng-init="setup()"> 
+    <div>
+      <datalist id="resumes">
+        <option ng-repeat="student in students">{{student.first_name}} - {{student.last_name}} - {{student.email}}</option>
+      </datalist>
+      Search: <input ng-model="filterQuery" list="resumes" >
+
+      <%= button_to 'Add Your Resume', "/students/new", method: :get %>
+
+      
+      </div>
+    </div>
+  </div>
+
+
+
+<div class="row">
+  <% @students.each_slice(4) do |four_students| %>
+  <div class="row">
+    <% four_students.each do |student| %>
+    <div class="col-md-3">
+      <div class="thumbnail">
+
+        <p> <img src ="<%= student.photo if student.photo.any? %> " ></p>   
+        <p> First Name: <%=link_to student.first_name, "/students/#{student.id}" %> </p>  
+        <p> Last Name: <%=link_to student.last_name, "/students/#{student.id}" %> </p>
+        <p> Email: $<%= student.email %></p>
+        <p> Phone: $<%= student.phone_number %> </p>
+        <p> Bio: $<%= student.short_bio %> </p>
+
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <% end %>
+</div>
+
+
+
+
+
+
+
