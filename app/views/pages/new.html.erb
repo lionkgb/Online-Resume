@@ -1,0 +1,57 @@
+<div class="container">
+  <div class='row'>
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+
+      <div class="thumbnail" style="width: 500px"> <h1 class="red-text text-center">Add new student </h1> </div>
+
+      <%= form_tag '/students', method: :post do  %>
+
+      <div class="thumbnail" style="width: 500px" ><h1 class="red-text text-center">Student Background Information</h1></div>
+        <div class="red-text text-center">
+          <div class="form-group"> <input type="text" name="first_name" placeholder="First Name..."> </div>
+          <div class="form-group"> <input type="text" name="last_name" placeholder="Last Name..."> </div>
+          <div class="form-group"> <input type="text" name="email" placeholder="Email..."> </div>
+          <div class="form-group"> <input type="text" name="phone_number" placeholder="Phone number...."> </div>
+          <div class="form-group"> <textarea type="text" name="short_bio" placeholder="Short Bio...."></textarea> </div>
+          <div class="form-group"> <input type="text" name="linkedin_url" placeholder="LinkedIn Url..."> </div>
+          <div class="form-group"> <input type="text" name="twitter_handle" placeholder="Twitter account..."> </div>
+          <div class="form-group"> <input type="text" name="online_resume_url" placeholder="Resume Link..."> </div>
+          <div class="form-group"> <input type="text" name="github_url" placeholder="Github Url..."> </div>
+          <div class="form-group"> <input type="text" name="photo" placeholder="Photo..."> </div>
+        </div>
+      <div class="thumbnail" style="width: 500px" ><h1 class="red-text text-center">Student Experience</h1>
+        <div class="red-text text-center">
+          <div class="form-group"> <input type="text" name="start_date" placeholder="date:mm/dd/yy..."> </div>
+          <div class="form-group"> <input type="text" name="end_date" placeholder="date:mm/dd/yy"> </div>
+          <div class="form-group"> <input type="text" name="job_title" placeholder="Job Title"> </div>
+          <div class="form-group"> <input type="text" name="company" placeholder="Company"> </div>
+          <div class="form-group"> <textarea type="text" name="details" placeholder="Details...."></textarea> </div>
+        </div>
+      <div class="thumbnail" style="width: 500px" ><h1 class="red-text text-center">Student Educational Background</h1></div>
+        <div class="red-text text-center">
+          <div class="form-group"> <input type="text" name="start_date" placeholder="date:mm/dd/yy..."> </div>
+          <div class="form-group"> <input type="text" name="end_date" placeholder="date:mm/dd/yy..."> </div>
+          <div class="form-group"> <input type="text" name="degree" placeholder="Degree..."> </div>
+          <div class="form-group"> <input type="text" name="university_name" placeholder="Unniversity name"> </div>
+          <div class="form-group"> <textarea type="text" name="details" placeholder="Details...."></textarea> </div>
+        </div>
+      <div class="thumbnail" style="width: 500px" ><h1 class="red-text text-center">Student Skills</h1></div>
+        <div class="red-text text-center">
+          <div class="form-group"> <textarea type="text" name="skill_name" placeholder="Skills (E.g. Ruby, HTML, CSS)....."></textarea></div>
+        </div>
+      <div class="thumbnail" style="width: 500px" ><h1 class="red-text text-center">Capstone Info</h1></div>
+        <div class="red-text text-center">
+          <div class="form-group"> <input type="text" name="name" placeholder="Capstone name"> </div>
+          <div class="form-group"> <input type="text" name="description" placeholder="Description..."> </div>
+          <div class="form-group"> <input type="text" name="url" placeholder="Capstone url..."> </div>
+          <div class="form-group"> <input type="text" name="screenshot" placeholder="Screenshot"> </div>
+        </div>
+      <input type="submit" value="Create Student">
+      <% end %>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+</div>
+</div>
