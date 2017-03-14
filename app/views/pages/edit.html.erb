@@ -1,0 +1,58 @@
+<div class="container">
+  <div class='row'>
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+
+      <div class="thumbnail" style="width: 500px"> <h1 class="red-text text-center">Edit your Resume </h1> </div>
+
+      <%= form_tag '/students', method: :patch do  %>
+
+      <div class="thumbnail" style="width: 500px" ><h1 class="red-text text-center">Student Background Information</h1></div>
+        <div class="red-text text-center">
+          <div class="form-group"> <input type="text" name="first_name" value="<%= @student.first_name%>" placeholder="First Name..."> </div>
+          <div class="form-group"> <input type="text" name="last_name" value="<%= @student.last_name%>" placeholder="Last Name..."> </div>
+          <div class="form-group"> <input type="text" name="email" value="<%= @student.email%>" placeholder="Email..."> </div>
+          <div class="form-group"> <input type="text" name="phone_number" value="<%= @student.phone_number%>" placeholder="Phone number...."> </div>
+          <div class="form-group"> <textarea type="text" name="short_bio" value="<%= @student.short_bio%>" placeholder="Short Bio...."></textarea> </div>
+          <div class="form-group"> <input type="text" name="linkedin_url" value="<%= @student.linkedin_url%>" placeholder="LinkedIn Url..."> </div>
+          <div class="form-group"> <input type="text" name="twitter_handle" value="<%= @student.twitter_handle%>" placeholder="Twitter account..."> </div>
+          <div class="form-group"> <input type="text" name="online_resume_url" value="<%= @student.online_resume_url%>" placeholder="Resume Link..."> </div>
+          <div class="form-group"> <input type="text" name="github_url" value="<%= @student.github_url%>"placeholder="Github Url..."> </div>
+          <div class="form-group"> <input type="text" name="photo" value="<%= @student.photo%>"placeholder="Photo..."> </div>
+        </div>
+      <div class="thumbnail" style="width: 500px" ><h1 class="red-text text-center">Student Experience</h1>
+        <div class="red-text text-center">
+          <div class="form-group"> <input type="text" name="start_date" value="<%= @experience.start_date%>" placeholder="date:mm/dd/yy..."> </div>
+          <div class="form-group"> <input type="text" name="end_date" value="<%= @experience.end_date%>" placeholder="date:mm/dd/yy"> </div>
+          <div class="form-group"> <input type="text" name="job_title" value="<%= @experience.job_title%>" placeholder="Job Title"> </div>
+          <div class="form-group"> <input type="text" name="company" value="<%= @experience.company%>" placeholder="Company"> </div>
+          <div class="form-group"> <textarea type="text" name="details"
+          value="<%= @experience.details%>" placeholder="Details...."></textarea> </div>
+        </div>
+      <div class="thumbnail" style="width: 500px" ><h1 class="red-text text-center">Student Educational Background</h1></div>
+        <div class="red-text text-center">
+          <div class="form-group"> <input type="text" name="start_date" value="<%= @education.start_date%>" placeholder="date:mm/dd/yy..."> </div>
+          <div class="form-group"> <input type="text" name="end_date" value="<%= @education.end_date%>" placeholder="date:mm/dd/yy..."> </div>
+          <div class="form-group"> <input type="text" name="degree" value="<%= @education.degree%>" placeholder="Degree..."> </div>
+          <div class="form-group"> <input type="text" name="university_name" value="<%= @education.university_name%>" placeholder="Unniversity name"> </div>
+          <div class="form-group"> <textarea type="text" name="details" value="<%= @education.details%>" placeholder="Details...."></textarea> </div>
+        </div>
+      <div class="thumbnail" style="width: 500px" ><h1 class="red-text text-center">Student Skills</h1></div>
+        <div class="red-text text-center">
+          <div class="form-group"> <textarea type="text" name="skill_name" value="<%= @skill.name%>" placeholder="Skills (E.g. Ruby, HTML, CSS)....."></textarea></div>
+        </div>
+      <div class="thumbnail" style="width: 500px" ><h1 class="red-text text-center">Capstone Info</h1></div>
+        <div class="red-text text-center">
+          <div class="form-group"> <input type="text" name="name" value="<%= @capstone.name%>" placeholder="Capstone name"> </div>
+          <div class="form-group"> <input type="text" name="description" value="<%= @capstone.description%>" placeholder="Description..."> </div>
+          <div class="form-group"> <input type="text" name="url" value="<%= @capstone.url%>" placeholder="Capstone url..."> </div>
+          <div class="form-group"> <input type="text" name="screenshot" value="<%= @capstone.screenshot%>" placeholder="Screenshot"> </div>
+        </div>
+      <input type="submit" value="Update Resume">
+      <% end %>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+</div>
+</div>
