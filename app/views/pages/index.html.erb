@@ -20,6 +20,7 @@
 <div class="row">
   <% @students.each_slice(4) do |four_students| %>
   <div class="row">
+  
     <% four_students.each do |student| %>
     <div class="col-md-3">
       <div class="thumbnail">
@@ -36,11 +37,3 @@
     <% end %>
   </div>
   <% end %>
-</div>
-
-
-
-
-
-
-
