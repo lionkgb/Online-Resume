@@ -1,0 +1,94 @@
+<div class="container">
+  <div class='row'>
+
+    <div class="thumbnail">      
+      <div class="red-text text-center">
+        <div class="col-md-12">
+
+          <h1> Personal Information </h1>
+        </div>
+
+
+        <div class="col-md-8"> 
+
+          <h1> Full Name: <%= @student.first_name %> <%= @student.last_name %></h1>
+          <p> Email: <%= @student.email %> </p>
+          <p> Phone Number: <%= @student.phone_number %> </p>
+          <p> LinkedIn: <%= @student.linkedin_url %> </p></p>
+          <p> Blog: <%= @student.personal_blog %> </p>
+          <p> GitHub: <%= @student.github_url %> </p>
+          <p> Twitter: <%= @student.twitter_handle %> </p>
+          <p> Short Bio: <%= @student.shortbio %> </p>
+
+        </div>
+
+      </div>
+
+      <div class="col-md-4">
+
+        <p> <img src ="<%= @student.photo if student.photo.any? %> " ></p>   
+
+      </div>
+
+    </div>
+
+
+    <div class="col-md-9">
+      <div class="thumbnail">
+        <h1> Experience </h1>
+        <% @student.experiences.each do |experience| if @student.experiences.any? %>
+
+        <p>Start Date: <%= experience.start_date %> </p>
+        <p> End Date: <%= experience.end_date %> </p>
+        <p> Job Title: <%= experience.job_title %> </p>
+        <p> Company Name <%= experience.company_name %> </p>
+        <p> Details <%= experience.details %> </p>
+
+
+        <%end%>
+
+        <h1> Capstone </h1>
+
+        <% @student.capstones.each do |capstone| if @student.capstones.any? %>
+
+        <p> Project Name: <%= capstone.name %> </p>
+        <p> Description: <%= capstone.description %> </p>
+        <a href="<%= capstone.url %>"> Link </a>
+        <img src="<%= capstone.screenshot %>">
+       
+        <%end%>
+
+      </div>
+    </div>
+
+
+    <div class="col-md-3">
+      <div class="thumbnail">
+
+        <h1> Education </h1>
+        <% @student.education.each do |education| if @student.education.any? %>
+
+        <p> Start Date: <%= education.start_date %> </p>
+        <p> End Date: <%= education.end_date %> </p>
+        <p> Degree: <%= education.degree %> </p>
+        <p> University Name: <%= education.university_name %> </p>
+        <p> Details: <%= education.details %> </p>
+
+        <%end%>
+
+        <h1> Skills </h1>
+        <% @student.skills.each do |skill| if @student.skills.any? %>
+
+        <p> <%= skill.name %> </p>
+
+
+        <%end%>
+
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+
